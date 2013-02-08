@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="app">
+  <header>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+    <script language="javascript" type="text/javascript">
+      angular.module('app', []);
+      
+      //Whatever you put on the controller scope,
+      //will be availalble in the HTML element bound to the controller.
+      function MyController($scope){
+        $scope.newMessage = "Hi";
+        $scope.messages = ["Bird", "is", "the", "word"]; 
+        $scope.total = 0; 
+        
+        $scope.add = function(){
+          //$scope.messages.push($scope.newMessage);
+          $scope.total = total + newMessage;
+        };
+      }
+    </script>
+  </header>
+  
+  <body ng-controller="MyController">
+    Add a number:<br>     
+    <input type="text" ng-model="newMessage">
+    <input type="submit" ng-click="add()" value="Punch it">
+    <br>
+    Total: {{ total }} <br>
+    Message: <br>
+    <ul>
+      <li ng-repeat="message in messages">
+        {{message}}
+      </li>
+    </ul>
+  </body>
+  
+</html>
